@@ -14,7 +14,7 @@ export default {
       screens: {
         md: "768px",
         "m-md": { max: "768px" },
-        "l-md": { max: "1050px" },
+        "l-md": { max: "1050px", min:"768px"},
       },
     },
   },

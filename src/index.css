@@ -17,3 +17,9 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+body{
+  display: flex;
+  place-items: center;
+  min-width: 400px;
+}

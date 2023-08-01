@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { Play } from "./components/play";
@@ -6,7 +6,9 @@ import { Play } from "./components/play";
 function App() {
   return (
     <>
-      <Play />
+      <React.StrictMode>
+        <Play />
+      </React.StrictMode>
     </>
   );
 }

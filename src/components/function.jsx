@@ -1,29 +1,17 @@
 import clsx from "clsx";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export function Func() {
-   const str = "";
+  const [element,setElement] = useState('')
 
-  const handleTableCol = (a = 5) => {
-    for (i = 0; i <= a; i++) {
-      <td onLoad={handleTableRow}></td>;
-    }
-  };
-
-  const handleTableRow = (b = 5) => {
-    for (i = 0; i <= b; i++) {
-      <table>
-        <tr>
-          <button></button>
-        </tr>
-      </table>;
-    }
-  };
+  const button = () => {
+    
+  }
 
   return (
     <>
-      <div className={clsx("w-[400px] h-[400px]")}>
-        <table onLoad={handleTableCol}></table>
+      <div className={clsx(" relative flex w-10/12 md:h-[650px] m-md:h-[300px] l-md:h-[500px] m-auto mt-10 items-center")}>
+        <div></div>
       </div>
     </>
   );
