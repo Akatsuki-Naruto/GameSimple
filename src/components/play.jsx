@@ -1,7 +1,8 @@
 import clsx from "clsx";
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
-// import { Hello } from "./gridElement";
+// import { useDispatch } from "react-redux";
+// import { findSequence } from "../actions/grid";
 
 function getRandomArbitrary(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
@@ -15,6 +16,8 @@ export const Play = () => {
   const [a, setA] = useState("");
   const [b, setB] = useState("");
   const [c, setC] = useState("");
+  const [isActive, setIsActive] = useState(false);
+  // const dispatch = useDispatch();
 
   const data = {};
 
@@ -48,12 +51,14 @@ export const Play = () => {
   let x = array.length;
   console.log(b, a, c);
 
+  const showInfo = () => {
+    setIsActive(!isActive);
+    setTimeout(() => {
+      let ans = [];
+      getallpath(elements, x, y, a, b, ans, "", c);
 
-
-  const showInfo = (matrix, x, y, a, b, c) => {
-    let ans = [];
-    getallpath(matrix, x, y, a, b, ans, "", c);
-    return ans;
+      return ans;
+    }, 1000);
   };
 
   const getallpath = (matrix, x, y, a, b, ans, cur, c) => {
@@ -76,6 +81,11 @@ export const Play = () => {
 
     return;
   };
+  // elements.forEach((row, element) => {
+  //   row.forEach((col, ele) => {
+  //     buttons.push((rowIndex = { rowIndex }), (columnIndex = { columnIndex }));
+  //   });
+  // });
 
   const listItems = elements.map((element, index) => (
     <div
@@ -87,9 +97,26 @@ export const Play = () => {
         <div
           key={index}
           className={clsx(
-            `flex rounded-lg mx-1 w-10 h-10 px-2 py-2 bg-primary-${ele}`
+            `flex rounded-lg mx-1 w-10 h-10 px-2 py-2 bg-primary-${ele} ${
+              isActive ? "border-solid border-black border-[1px]" : ""
+            }`
           )}
-          onClick={() => showInfo(elements, x, y, index, b, ele)}
+          onClick={() => {
+            showInfo();
+            // setA(index);
+            // setC(ele);
+          }}
+
+          // onClick={dispatch(
+          //   findSequence(
+          //     (setTrigger = { setIsActive }),
+          //     (Trigger = { isActive }),
+          //     {
+          //       rowRootIndex: rowIndex,
+          //       columnRootIndex: columnIndex,
+          //     }
+          //   )
+          // )}
         ></div>
       ))}
     </div>
